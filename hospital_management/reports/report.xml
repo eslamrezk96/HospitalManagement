@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+            id="report_patient_card"
+            model="hospital.patient"
+            string="Patient Card"
+            report_type="qweb-pdf"
+            name="hospital_management.report_patient"
+            file="hospital_management.report_patient"
+    />
+    <report
+            id="report_patient_card_xlsx"
+            model="hospital.patient"
+            string="Patient Card Excel"
+            report_type="xlsx"
+            name="hospital_management.report_patient_xlsx"
+            file="Patient Card Excel"
+    />
+</odoo>
+        <!--menu="False" To Remove Report From Print Menu -->

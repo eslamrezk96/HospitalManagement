@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_hospital" model="ir.module.category">
+        <field name="name">Hospital Management</field>
+    </record>
+
+    <record id="hospital_doctor" model="res.groups">
+        <field name="name">Doctor</field>
+        <field name="category_id" ref="module_category_hospital"/>
+    </record>
+
+    <record id="hospital_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_category_hospital"/>
+        <field name="implied_ids" eval="[(4, ref('hospital_doctor'))]"/>
+    </record>
+
+    <record id="patient_record_rule" model="ir.rule">
+        <field name="name">See only his patient</field>
+        <field ref="model_hospital_patient" name="model_id"/>
+        <field name="domain_force">[('hospital_doctor_id.res_users_id', '=', user.id)]</field>
+        <!-- You can attach this rule to a specific group, Or make it Global -->
+        <field name="groups" eval="[(4, ref('hospital_doctor'))]"/>
+        <!--<field name="global" eval="1"/> -->
+    </record>
+
+    <record id="patient_manager_record_rule" model="ir.rule">
+        <field name="name">See All Patient</field>
+        <field ref="model_hospital_patient" name="model_id"/>
+        <field name="domain_force">[]</field>
+        <!-- You can attach this rule to a specific group, Or make it Global -->
+        <field name="groups" eval="[(4, ref('hospital_manager'))]"/>
+        <!--<field name="global" eval="1"/> -->
+    </record>
+</odoo>

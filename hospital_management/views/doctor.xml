@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hospital_doctor_form" model="ir.ui.view">
+            <field name="name">Hospital Doctor Form</field>
+            <field name="model">hospital.doctor</field>
+            <field name="arch" type="xml">
+                <form string="Doctor">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="gender"/>
+                                <field name="res_users_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hospital_doctor_tree" model="ir.ui.view">
+            <field name="name">Hospital Doctor Tree</field>
+            <field name="model">hospital.doctor</field>
+            <field name="arch" type="xml">
+                <tree string="Doctor">
+                    <field name="name"/>
+                    <field name="gender"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hospital_doctor_action" model="ir.actions.act_window">
+            <field name="name">Doctor</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hospital.doctor</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    Create Your First Doctor
+                </p>
+            </field>
+        </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem
+                id="hospital_doctor_menu"
+                name="Doctor"
+                parent="menu_hospital"
+                action="hospital_doctor_action"
+                sequence="3"/>
+    </data>
+</odoo>
