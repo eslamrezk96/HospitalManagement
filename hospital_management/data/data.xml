@@ -9,7 +9,7 @@
 
         <record id="patient_batot" model="hospital.appointment">
             <field name="patient_id" ref="patient_batot"/>
-<!--            <field name="appointment_date">13/4/2020</field>-->
+            <field name="appointment_date">13/4/2020</field>
         </record>
     </data>
 </odoo>
