@@ -15,7 +15,6 @@
         'security/ir.model.access.csv',
         # 'security/security.xml',
         'data/sequence.xml',
-        # 'data/data.xml',
         'wizard/create_appointment.xml',
         'views/patient.xml',
         'views/doctor.xml',
