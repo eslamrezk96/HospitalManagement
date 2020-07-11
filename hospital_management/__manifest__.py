@@ -20,7 +20,7 @@
         'views/doctor.xml',
         'views/appointment.xml',
         'reports/report.xml',
-        # 'reports/patient_card.xml',
+        'reports/patient_card.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

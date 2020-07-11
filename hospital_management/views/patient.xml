@@ -7,6 +7,13 @@
                 sequence="0"
                 web_icon="hospital_management,static/description/icon.png"
         />
+        <record id="open_patient_appointment" model="ir.actions.act_window">
+            <field name="name">Appointment</field>
+            <field name="res_model">hospital.appointment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('patient_id', '=', active_id)]</field>
+            <field name="context">{}</field>
+        </record>
 
         <record id="form_view_patients" model="ir.ui.view">
             <field name="name">form view patients</field>
@@ -24,6 +31,10 @@
                         <div class="oe_button_box" name="button_box">
                             <button name="open_patient_appointment" type="object" class="oe_stat_button"
                                     icon="fa-calendar">
+                                <field name="appointment_ct" string="Appointment" widget="statinfo"/>
+                            </button>
+                            <button name="%(open_patient_appointment)d" type="action" class="oe_stat_button"
+                                    icon="fa-usd">
                                 <field name="appointment_ct" string="Appointment" widget="statinfo"/>
                             </button>
                             <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
@@ -94,15 +105,6 @@
             </field>
         </record>
 
-        <record id="hospital_appointment" model="ir.actions.act_window">
-            <field name="name">Appointment</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">hospital.appointment</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-            <field name="domain">[('patient_id', '=', active_id)]</field>
-            <field name="binding_model_id" ref="model_hospital_patient"/>
-        </record>
 
         <record id="action_view_patients" model="ir.actions.act_window">
             <field name="name">Patients</field>
