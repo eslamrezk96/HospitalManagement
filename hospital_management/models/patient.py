@@ -74,3 +74,7 @@ class HospitalPatient(models.Model):
         self.appointment_ct = count
 
     ## End
+
+    @api.model
+    def test_cron_job(self):
+        print('Eslam')
