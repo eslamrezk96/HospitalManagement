@@ -7,6 +7,8 @@
                 sequence="0"
                 web_icon="hospital_management,static/description/icon.png"
         />
+
+        <!--         Smart button type action -->
         <record id="open_patient_appointment" model="ir.actions.act_window">
             <field name="name">Appointment</field>
             <field name="res_model">hospital.appointment</field>
@@ -105,6 +107,17 @@
             </field>
         </record>
 
+<!--        Action to Action Button-->
+        <record id="acton_patient_appointment" model="ir.actions.act_window">
+            <field name="name">Appointment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hospital.appointment</field>
+            <field name="domain">[('patient_id','=',active_id)]</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="hospital_management.appointment_tree"/>
+            <field name="binding_model_id" ref="model_hospital_patient"/>
+        </record>
 
         <record id="action_view_patients" model="ir.actions.act_window">
             <field name="name">Patients</field>
